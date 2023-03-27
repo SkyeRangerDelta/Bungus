@@ -1,7 +1,7 @@
 {
-  "parent": "block/cross",
-  "render_type": "minecraft:cutout",
+  "parent": "minecraft:block/cross",
+  "render_type": "cutout",
   "textures": {
-    "cross": "bungus:block/bungus_block"
+    "cross": "bungus:block/bungus"
   }
 }

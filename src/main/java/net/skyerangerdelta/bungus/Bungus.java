@@ -1,6 +1,8 @@
 package net.skyerangerdelta.bungus;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -11,6 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.skyerangerdelta.bungus.block.BungusBlocks;
 import net.skyerangerdelta.bungus.item.BungusItems;
+import net.skyerangerdelta.bungus.world.feature.BungusConfFeatures;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -25,12 +28,16 @@ public class Bungus
 
         BungusItems.register(modEventBus);
         BungusBlocks.register(modEventBus);
+        BungusConfFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BungusBlocks.BUNGUS_BLOCK.getId(), BungusBlocks.POTTED_BUNGUS);
+        });
 
     }
 

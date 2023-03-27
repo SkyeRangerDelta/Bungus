@@ -1,10 +1,13 @@
 package net.skyerangerdelta.bungus.block;
 
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.MushroomBlock;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -17,12 +20,21 @@ import net.skyerangerdelta.bungus.item.BungusItems;
 import java.util.function.Supplier;
 
 public class BungusBlocks {
+    //Class Register
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Bungus.MOD_ID);
 
+    //Blocks
     public static final RegistryObject<Block> BUNGUS_BLOCK = registerBlock("bungus_block",
-            () -> new MushroomBlock(BlockBehaviour.Properties.of(Material.PLANT), () -> ));
+            () -> new FlowerBlock(MobEffects.REGENERATION, 5,
+                    BlockBehaviour.Properties.copy(Blocks.RED_TULIP)), CreativeModeTab.TAB_MISC);
 
-    private static <T extends MushroomBlock>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
+    public static final RegistryObject<Block> POTTED_BUNGUS = BLOCKS.register("potted_bungus",
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), BungusBlocks.BUNGUS_BLOCK,
+                    BlockBehaviour.Properties.copy(Blocks.RED_TULIP)));
+
+
+    //Functions
+    private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> returnedBlock = BLOCKS.register(name, block);
         registerBlockItem(name, returnedBlock, tab);
 
