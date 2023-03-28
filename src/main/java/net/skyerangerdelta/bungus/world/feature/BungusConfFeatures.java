@@ -19,8 +19,8 @@ public class BungusConfFeatures {
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> BUNGUS = CONFIGURED_FEATURES.register("bungus",
             () -> new ConfiguredFeature<>(Feature.FLOWER,
-                    new RandomPatchConfiguration(32, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
-                            new SimpleBlockConfiguration(BlockStateProvider.simple(BungusBlocks.BUNGUS_BLOCK.get()))))));
+                    new RandomPatchConfiguration(40, 16, 4, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
+                            new SimpleBlockConfiguration(BlockStateProvider.simple(BungusBlocks.BUNGUS.get()))))));
 
     public static void register(IEventBus eventBus) {
         CONFIGURED_FEATURES.register(eventBus);

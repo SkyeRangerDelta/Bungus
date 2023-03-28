@@ -24,13 +24,13 @@ public class BungusBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Bungus.MOD_ID);
 
     //Blocks
-    public static final RegistryObject<Block> BUNGUS_BLOCK = registerBlock("bungus_block",
+    public static final RegistryObject<Block> BUNGUS = registerBlock("bungus",
             () -> new FlowerBlock(MobEffects.REGENERATION, 5,
-                    BlockBehaviour.Properties.copy(Blocks.RED_TULIP)), CreativeModeTab.TAB_MISC);
+                    BlockBehaviour.Properties.copy(Blocks.DANDELION)), CreativeModeTab.TAB_MISC);
 
     public static final RegistryObject<Block> POTTED_BUNGUS = BLOCKS.register("potted_bungus",
-            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), BungusBlocks.BUNGUS_BLOCK,
-                    BlockBehaviour.Properties.copy(Blocks.RED_TULIP)));
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), BungusBlocks.BUNGUS,
+                    BlockBehaviour.Properties.copy(Blocks.DANDELION)));
 
 
     //Functions

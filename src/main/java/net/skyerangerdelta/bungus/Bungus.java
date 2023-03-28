@@ -36,7 +36,7 @@ public class Bungus
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BungusBlocks.BUNGUS_BLOCK.getId(), BungusBlocks.POTTED_BUNGUS);
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BungusBlocks.BUNGUS.getId(), BungusBlocks.POTTED_BUNGUS);
         });
 
     }
