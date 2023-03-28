@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:block/flower_pot_cross",
+  "parent": "bungus:block/flower_pot_cross",
   "textures": {
     "plant": "bungus:block/bungus"
-  },
-  "render_type": "cutout"
+  }
 }
